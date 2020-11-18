@@ -27,11 +27,19 @@ export class AddProjectComponent implements OnInit{
             )
         }
     }
+    Close(){
+        setTimeout(() => {
+            document.getElementById('notication').style.display='none';
+        }, 300);
+    }
     submit(){
         if(this.id!=0){
             this._projectservice.EditById(this.project).subscribe(
                 (data:any)=>{
-                    console.log(data)
+                    console.log(data);
+                    setTimeout(() => {
+                        document.getElementById('notication').style.display='flex';
+                    }, 300);
                 }
             )
         }

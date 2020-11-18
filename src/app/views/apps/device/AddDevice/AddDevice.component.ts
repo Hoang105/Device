@@ -58,11 +58,19 @@ export class AddDeviceComponent implements OnInit{
             )
         }
     }
+    Close(){
+        setTimeout(() => {
+            document.getElementById('notication').style.display='none';
+        }, 300);
+    }
     submit(){
         if(this.id!=0){
             this._deviceservice.EditById(this.device).subscribe(
                 (data:any)=>{
-                    console.log(data)
+                    console.log(data);
+                    setTimeout(() => {
+                        document.getElementById('notication').style.display='flex';
+                    }, 300);
                 }
             )
         }

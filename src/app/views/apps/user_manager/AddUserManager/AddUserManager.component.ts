@@ -43,8 +43,11 @@ export class AddUserManagerComponent implements OnInit{
     submit(){
         if(this.id!=0){
             this._usermanagerservice.EditById(this.user).subscribe(
-                data=>{
+                (data:any)=>{
                     console.log(data);
+                    setTimeout(() => {
+                        document.getElementById('notication').style.display='flex';
+                    }, 300);
                 }
             )
         }
@@ -56,6 +59,11 @@ export class AddUserManagerComponent implements OnInit{
                 }
             )
         }
+    }
+    Close(){
+        setTimeout(() => {
+            document.getElementById('notication').style.display='none';
+        }, 300);
     }
     selectOption(event)
     {

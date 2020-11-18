@@ -35,6 +35,11 @@ export class DeviceComponent extends CommonComponent<DeviceEntity> implements On
             }
         )
     }
+    Close(){
+        setTimeout(() => {
+            document.getElementById('notication').style.display='none';
+        }, 300);
+    }
     getDevice(){
         this._deviceservice.GetDevice().subscribe(
             (data:any)=>{
@@ -70,6 +75,9 @@ export class DeviceComponent extends CommonComponent<DeviceEntity> implements On
         this._deviceservice.DeleteById(data).subscribe(
             (data:any)=>{
                 this.ngOnChanges(data);
+                setTimeout(() => {
+                    document.getElementById('notication').style.display='flex';
+                }, 300);
             }
         )
     }

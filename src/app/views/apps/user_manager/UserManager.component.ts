@@ -46,8 +46,16 @@ export class UserManagerComponent extends CommonComponent<UserManagerEntity> imp
         this._usermanagerservice.DeleteById(data).subscribe(
             (data:any)=>{
                 this.ngOnChanges(data);
+                setTimeout(() => {
+                    document.getElementById('notication').style.display='flex';
+                }, 300);
             }
         )
+    }
+    Close(){
+        setTimeout(() => {
+            document.getElementById('notication').style.display='none';
+        }, 300);
     }
     add(){
         this.router.navigate(['/admin/usermanager/add']);
